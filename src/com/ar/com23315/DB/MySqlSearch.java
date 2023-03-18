@@ -5,34 +5,32 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.ArrayList;
 import com.ar.com23315.Models.ArticuloDTO;
-import com.ar.com23315.Service.ISearch;
-import com.microsoft.sqlserver.jdbc.SQLServerStatement;
 
-
-public class MySqlSearch implements ISearch {
+public class MySqlSearch implements IConnection<ArrayList<ArticuloDTO>> {
 
 	private String connectionUrl = "jdbc:sqlserver://localhost:1434;instanceName=DESKTOP-FQOBUCCM;databaseName=PetsDB;user=sa;password=123456;encrypt=true;trustServerCertificate=true;";
 	private Connection connection = null;
 	private String query = "SELECT * FROM Pet";
-	private ArticuloDTO[] art = new ArticuloDTO[3];
 
 	
-	public ArticuloDTO[] Search() {
+	public ArrayList<ArticuloDTO> execute() {
 		System.out.println("Buscando (MySql)...");
 		
 		try {
 			connection = DriverManager.getConnection(connectionUrl);
-			System.out.println("Conexión establecida" + connection.getCatalog());
+			System.out.println("Conexión establecida con " + connection.getCatalog());
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery(query);
-			int i = 0;
+			
+			ArrayList<ArticuloDTO> list = new ArrayList<ArticuloDTO>();
+			
 			while(rs.next()) {
-				art[i] = new ArticuloDTO(rs.getInt("PetId"), rs.getString("PetName"), rs.getString("Breed"));
-				i++;
+				list.add(new ArticuloDTO(rs.getInt("PetId"), rs.getString("PetName"), rs.getString("Breed")));
 			}
-			return art;
+			
+			return list;
 		}
 		catch (SQLException e) {
 			System.out.println("Error al conectarse a la base de datos: " + e.getMessage());
@@ -40,7 +38,7 @@ public class MySqlSearch implements ISearch {
 		finally {
 			if (connection != null) try { connection.close(); } catch(Exception e) {}
 		}
-		return art;
+		return null;
 	}
 
 }

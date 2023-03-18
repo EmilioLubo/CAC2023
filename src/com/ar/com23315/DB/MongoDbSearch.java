@@ -1,13 +1,14 @@
 package com.ar.com23315.DB;
 
+import java.util.ArrayList;
 import com.ar.com23315.Models.ArticuloDTO;
-import com.ar.com23315.Service.ISearch;
+import com.ar.com23315.Service.IService;
 
-public class MongoDbSearch implements ISearch {
+public class MongoDbSearch implements IService {
 	
-	public ArticuloDTO[] Search() {
+	public ArrayList<ArticuloDTO> invoke() {
 		System.out.println("Buscando (Mongo)...");
 		
-		return new ArticuloDTO[] {};		
+		return new ArrayList<ArticuloDTO>();		
 	}
 }
