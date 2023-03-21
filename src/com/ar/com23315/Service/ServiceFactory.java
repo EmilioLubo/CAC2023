@@ -9,6 +9,15 @@ public class ServiceFactory {
 			case "MYSQL": {
 				yield new MySqlService();
 			}
+			case "API": {
+				yield new APIService();
+			}
+			case "MONGO": {
+				yield new MongoDbService();
+			}
+			case "READER": {
+				yield new MongoDbService();
+			}
 			default: throw new RuntimeException("No existe implementación para " + key + ".");
 		};
 	}

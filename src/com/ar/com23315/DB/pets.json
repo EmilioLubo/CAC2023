@@ -1,0 +1,22 @@
+[
+	{
+		"PetId": 1,
+		"PetName": "Firulais",
+		"Breed": "Galgo"
+	},
+	{
+		"PetId": 2,
+		"PetName": "Bella",
+		"Breed": "Mestizo"
+	},
+	{
+		"PetId": 3,
+		"PetName": "Coco",
+		"Breed": "Persa"
+	},
+	{
+		"PetId": 4,
+		"PetName": "Jerry",
+		"Breed": "Mestizo"
+	}
+]

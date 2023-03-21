@@ -8,7 +8,7 @@ import com.ar.com23315.Service.ServiceFactory;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		var env = "MYSQL";
+		var env = "READER";
 		
 		IService service = ServiceFactory.getService(env);
 		
