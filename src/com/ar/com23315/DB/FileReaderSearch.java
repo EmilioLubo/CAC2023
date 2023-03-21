@@ -1,9 +1,14 @@
 package com.ar.com23315.DB;
 
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
 import com.google.gson.reflect.TypeToken;
 import com.ar.com23315.Models.ArticuloDTO;
 import com.google.gson.Gson;
@@ -14,11 +19,16 @@ public class FileReaderSearch implements IConnection<ArrayList<ArticuloDTO>> {
 	public ArrayList<ArticuloDTO> execute() {
 		
 		System.out.println("Conectándose a FileReader");
+		Properties props = new Properties();
 		
 		try {
-			Reader reader = new FileReader("/com/ar/com23315/DB/pets.json");
+			
+			InputStream input = new FileInputStream("config.properties");
+			props.load(input);
+			
+			Reader reader = new FileReader(props.getProperty("fileUrl"));
 			Gson gson = new Gson();
-			Type listType = new TypeToken<ArrayList<ArticuloDTO>>(){}.getType();
+			Type listType = new TypeToken<List<ArticuloDTO>>(){}.getType();
 			ArrayList<ArticuloDTO> list = gson.fromJson(reader, listType);
 			
 			return list;

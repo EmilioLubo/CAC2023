@@ -16,7 +16,7 @@ public class ServiceFactory {
 				yield new MongoDbService();
 			}
 			case "READER": {
-				yield new MongoDbService();
+				yield new FileReaderService();
 			}
 			default: throw new RuntimeException("No existe implementación para " + key + ".");
 		};

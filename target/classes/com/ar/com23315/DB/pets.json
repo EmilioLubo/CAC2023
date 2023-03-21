@@ -1,22 +1,22 @@
 [
 	{
-		"PetId": 1,
-		"PetName": "Firulais",
-		"Breed": "Galgo"
+		"id": "1",
+		"name": "Firulais",
+		"breed": "Galgo"
 	},
 	{
-		"PetId": 2,
-		"PetName": "Bella",
-		"Breed": "Mestizo"
+		"id": "2",
+		"name": "Bella",
+		"breed": "Mestizo"
 	},
 	{
-		"PetId": 3,
-		"PetName": "Coco",
-		"Breed": "Persa"
+		"id": "3",
+		"name": "Coco",
+		"breed": "Persa"
 	},
 	{
-		"PetId": 4,
-		"PetName": "Jerry",
-		"Breed": "Mestizo"
+		"id": "4",
+		"name": "Jerry",
+		"breed": "Mestizo"
 	}
 ]
